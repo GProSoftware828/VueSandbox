@@ -8,6 +8,8 @@
 
 <script>
   import { eventBus } from './main';
+  import { announcementEventBus } from './main';
+
   export default {
     props: {
       article: {
@@ -17,6 +19,11 @@
     },
     methods: {
       share(media) {
+        announcementEventBus.$emit('articleWasShared', {
+          article: this.article,
+          media: media
+        });
+
         eventBus.$emit('articleWasShared', {
           media: media
         });

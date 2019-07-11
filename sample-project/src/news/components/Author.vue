@@ -4,6 +4,7 @@
 
 <script>
 import { eventBus } from '../../main';
+import {announcementEventBus} from '../../main';
   export default {
     props: {
       author: {
