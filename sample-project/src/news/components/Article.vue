@@ -6,16 +6,13 @@
     <p>Shares: {{shares}}</p>
     <p class="lead">{{content}}</p>
     <br><br>
-    <p>Share {{title}}</p>
-    <app-social-sharing @articleWasShared="shared('Hello!', $event)"></app-social-sharing>
-    <app-social2-sharing @articleWasShared="sharing('Hello!', $event)"></app-social2-sharing>
+    <app-social-sharing :article="$data" @articleWasShared="shared('Hello!', $event)"></app-social-sharing>
   </div>
 </template>
 
 <script>
 import Author from './author';
 import Social from '../../Social.vue';
-import Social2 from '../../Social2.vue';
 
   export default {
     data() {
@@ -35,17 +32,11 @@ import Social2 from '../../Social2.vue';
         this.shares++;
         console.log(message);
         console.log(event);
-      },
-      sharing: function(message, event) {
-        this.shares++;
-        console.log(message);
-        console.log(event);
       }
     },
     components: {
       author: Author,
-      appSocialSharing: Social,
-      appSocial2Sharing: Social2
+      appSocialSharing: Social
     }
   }
 </script>
