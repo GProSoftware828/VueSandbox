@@ -8,8 +8,8 @@
   </head>
   <body>
     <div id="greetings">
-      <h2>Hello, {{ greetLeaders(seniorFirst, seniorSecond) }}</h2>
-      <h2>Hello, {{ greetLeaders(commandFirst, commandSecond) }}</h2>
+      <h2>Hello, {{ greetLeaders(seniorFirst, seniorSecond).informal }}</h2>
+      <h2>Hello, {{ greetLeaders(commandFirst, commandSecond).formal }}</h2>
     </div>
     <div id="app">
       <!--Can make ternary expressions inside {{}} for ex.- the column 'active' as 0 or 1 for displaying the element-->
@@ -53,7 +53,10 @@
         },
         methods: {
           greetLeaders: function(first, last) {
-            return first + ' ' + last;
+            return {
+              informal: first + ' ' + last,
+              formal: last + ' ' + first
+            };
           }
         }
       });
