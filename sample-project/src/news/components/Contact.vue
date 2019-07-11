@@ -2,6 +2,8 @@
   <div>
     <h2>Contact Us</h2>
 
+    <slot name="top"></slot>
+
     <form>
       <div class="form-group">
         <label for="yourName">Your Name</label>
@@ -16,7 +18,7 @@
         <textarea id="message" cols="30" rows="10" class="form-control" placeholder="Enter your message"/>
       </div>
 
-      <slot></slot>
+      <slot name="bottom"><p>No urgent messages. You are reading the default message.</p></slot>
 
       <button type="submit" class="btn btn-primary">Send</button>
     </form>
