@@ -16,16 +16,6 @@
         this.$emit('articleWasShared', {
           media: 'Facebook'
         });
-      },
-
-      sharing() {
-        eventBus.$emit('articleWasShared', {
-          media: 'Twitter'
-        });
-
-        this.$emit('articleWasShared', {
-          media: 'Twitter'
-        });
       }
     }
   }
