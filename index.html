@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <!--Can make ternary expressions inside {{}} for ex.- the column 'active' as 0 or 1 for displaying the element-->
+      <!--Binding is not responding in browser:-->
+      <h1 v-bind:message="message">{{ getIntro() }}</h1>
+      <a v-bind:href="link">Visit the info</a>
+      <input type="text" v-on:keyup.enter="pressedEnter" />
+      <!--If something is triggering auto use .prevent event modifier-->
+      <input type="text" v-on:keyup.ctrl.enter="name = $event.target.value" />
+      <p>Output: {{ name }}</p>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+    <script type="text/javascript">
+      new Vue({
+        el: '#app',
+        data: {
+          message: 'Hello World!',
+          description: 'This is Vue!',
+          link: 'www.google.com',
+          name: ''
+        },
+        methods: {
+          getIntro: function() {
+            return this.message.split(' ')[0] + ' ' + this.description;
+          },
+          pressedEnter: function() {
+            alert('You entered the data');
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
