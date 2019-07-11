@@ -1,3 +1,5 @@
+import Vue from 'vue';
+
 <template>
   <div class="container">
     <div class="row">

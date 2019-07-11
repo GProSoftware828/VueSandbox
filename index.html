@@ -7,6 +7,10 @@
     <title>Document</title>
   </head>
   <body>
+    <div id="greetings">
+      <h2>Hello, {{ greetLeaders(seniorFirst, seniorSecond) }}</h2>
+      <h2>Hello, {{ greetLeaders(commandFirst, commandSecond) }}</h2>
+    </div>
     <div id="app">
       <!--Can make ternary expressions inside {{}} for ex.- the column 'active' as 0 or 1 for displaying the element-->
       <!--Binding is not responding in browser:-->
@@ -34,6 +38,22 @@
           },
           pressedEnter: function() {
             alert('You entered the data');
+          }
+        }
+      });
+    </script>
+    <script>
+      new Vue({
+        el: '#greetings',
+        data: {
+          seniorFirst: 'Henry',
+          seniorSecond: 'Payton',
+          commandFirst: 'Richard',
+          commandSecond: 'Peters'
+        },
+        methods: {
+          greetLeaders: function(first, last) {
+            return first + ' ' + last;
           }
         }
       });
